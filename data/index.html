@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Relay Control</title>
+</head>
+<body>
+    <h1>Relay Control</h1>
+    <button onclick="toggleRelay('on')">Turn ON</button>
+    <button onclick="toggleRelay('off')">Turn OFF</button>
+
+
+    <style>
+        h1 {
+            color: red;
+        }
+    </style>
+
+    <script>
+        function toggleRelay(state) {
+            fetch(`/relay?state=${state}`)
+                .then(response => response.text())
+                .then(data => console.log(data));
+        }
+    </script>
+</body>
+</html>
